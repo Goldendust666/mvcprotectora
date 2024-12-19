@@ -59,7 +59,7 @@ class Animal {
     }
 
     public static function obtenerAnimales(){
-        $conexion= new PDO("mysql:host=localhost;dbname=protectora", "root", "");
+        $conexion= new PDO("mysql:host=protectora;dbname=protectora", "root", "");
         $row = $conexion->query('SELECT id, nombre, sexo,descripcion, img FROM animales');
         self::$animales = null;
 
@@ -73,13 +73,13 @@ class Animal {
     }
 
     public static function eliminarAnimal($id){
-        $conexion= new PDO("mysql:host=localhost;dbname=protectora", "root", "");
+        $conexion= new PDO("mysql:host=protectora;dbname=protectora", "root", "");
         $row = $conexion->exec("DELETE FROM animales WHERE id=$id");
         header("Location:/mvcProtectora/index.php");
     }
 
     public static function anadirAnimal($nombre,$sexo,$descripcion,$imagen){
-        $conexion= new PDO("mysql:host=localhost;dbname=protectora", "root", "");
+        $conexion= new PDO("mysql:host=protectora;dbname=protectora", "root", "");
         $conexion->exec("INSERT INTO `animales` (`nombre`,`sexo`,`descripcion`,`img`) VALUES ('$nombre','$sexo','$descripcion','$imagen');");
         header("Location: /mvcProtectora/index.php");
     }
