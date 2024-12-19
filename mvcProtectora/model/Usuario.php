@@ -39,7 +39,7 @@ class Usuario {
     }
 
     public static function comprobarLogin($u, $p) {
-        $conexion = new PDO("mysql:host=localhost;dbname=protectora", "root", "");
+        $conexion = new PDO("mysql:host=protectora;dbname=protectora", "root", "");
     
         $sql = $conexion->prepare("SELECT `password` FROM USUARIOS WHERE `USUARIO` = :usuario");
         $sql->bindValue(":usuario", $u);
