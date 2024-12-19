@@ -58,7 +58,7 @@ class Blog {
     }
 
     public static function obtenerBlogs(){
-        $conexion= new PDO("mysql:host=localhost;dbname=protectora", "root", "");
+        $conexion= new PDO("mysql:host=protectora;dbname=protectora", "root", "");
         $row = $conexion->query('SELECT id, titulo, fecha , comentario, img FROM blog');
         self::$blogs = null;
 
@@ -72,7 +72,7 @@ class Blog {
     }
 
     public static function nuevoPost($titulo,$comentarios,$nombreArchivo){
-        $conexion= new PDO("mysql:host=localhost;dbname=protectora", "root", "");
+        $conexion= new PDO("mysql:host=protectora;dbname=protectora", "root", "");
         $conexion->exec("INSERT INTO `blog` (`titulo`,`comentario`,`img`) VALUES ('$titulo','$comentarios','$nombreArchivo');");
         header("Location: /mvcProtectora/index.php");
     }
